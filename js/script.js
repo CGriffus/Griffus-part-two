@@ -1,29 +1,28 @@
-var eventType = prompt('What type of event are you attending?');
-var tempFahr = prompt('What is the temperature?');
-var result = 'Since it is '+tempFahr+' degrees and you are going to a '+eventType+' event, you should wear';
+let eventType = prompt("What type of event are you attending?");
+let tempFahr = prompt("What is the temperature?");
 
-
-//Casual
-if (eventType === 'casual' && tempFahr < 54) {
-    console.log(result +' something comfy and a coat.');
-} else if (eventType === 'casual' && (tempFahr >= 54 && tempFahr <=70)) {
-    console.log(result + ' something comfy and a jacket.');
-} else if (eventType === 'casual' && tempFahr > 70) {
-    console.log(result +' something comfy and no jacket.');
-//Semi-formal
-} else if (eventType === 'semi-formal' && tempFahr < 54) {
-    console.log(result + ' a polo and a coat.');
-} else if (eventType === 'semi-formal' && (tempFahr >= 54 && tempFahr <=70)) {
-    console.log(result + ' a polo and a jacket.');
-} else if (eventType === 'semi-formal' && tempFahr > 70) {
-    console.log(result + ' a polo and no jacket.');
-//Formal
-} else if (eventType === 'formal' && tempFahr < 54) {
-    console.log(result + ' a suit and a coat.');
-} else if (eventType === 'formal' && (tempFahr >= 54 && tempFahr <=70)) {
-    console.log(result + ' a suit and a jacket.');
-} else if (eventType === 'formal' && tempFahr > 70) {
-    console.log(result + ' a suit and no jacket.');
+function tempClothes(tempFahr) {
+  if (tempFahr < 54) {
+    return "a coat";
+  } else if (tempFahr <= 70) {
+    return "a jacket";
+  } else {
+    return "no jacket";
+  }
 }
-    
 
+function eventClothes(eventType) {
+  if (eventType === "casual") {
+    return "something comfy";
+  } else if (eventType === "semi-formal") {
+    return "a polo";
+  } else {
+    return "a suit";
+  }
+}
+
+console.log(
+  `Since it is ${tempFahr} degrees and you are going to a ${eventType} event, you should wear ${eventClothes(
+    eventType
+  )} and ${tempClothes(tempFahr)}`
+);
